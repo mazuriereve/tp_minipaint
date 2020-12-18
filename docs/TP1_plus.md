@@ -15,7 +15,9 @@ En fait, une bonne pratique consiste à s’inspirer du patron _Iterator_. Nous 
   
 
 <br>
+
 💡 _**À retenir**_ : lorsque vous encapsulez une collection au sein d’une classe, pensez à l’interface Iterable ; votre code sera mieux encapsulé et plus facile à utiliser ! 
 
+<br>
 
 [🔙 Retour](./TP1.md)

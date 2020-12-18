@@ -14,11 +14,13 @@ Les dépendances du projet sont gérées automatiquement grâce à Maven. Par cu
 
 Compilez le projet, lancez l'application, et testez !
 
+>**🖥 TODO**
 > - Créez un diagramme des classes, il vous sera utile par la suite. Pour cela, vous pouvez utiliser un stylo et un papier... 📝
 > 
 > - Efforcez-vous de comprendre le rôle de chaque classe 🧐
 
 <br>Les formes géométriques qui sont dessinées sont représentées par des objets, qui sont stockés dans le `DrawingPane`. Mais où sont les classes représentant les différentes formes géométriques ??
+>**🖥 TODO**
 > - Cherchez un peu, et quand vous aurez trouvé, complétez le diagramme de classes de l'application.
 
 <br> 
@@ -27,6 +29,7 @@ Compilez le projet, lancez l'application, et testez !
 
 On veut maintenant pouvoir dessiner des triangles.
 
+>**🖥 TODO**
 > - Décidez quelle classe vous utiliserez pour représenter cette nouvelle forme géométrique.
 > - En vous inspirant de la manière dont les rectangles et les ellipses sont créés et ajoutés au `DrawingPane`, ajoutez les classes nécessaires ainsi qu’un bouton dans l’interface pour pouvoir dessiner des triangles.
 > - Définissez un style CSS à appliquer aux triangles.
@@ -40,6 +43,7 @@ Les tests unitaires sont un excellent moyen de vérifier la qualité du code pro
 Commençons tout de suite !
 
 Dans le package `test`, il y a déjà une classe permettant de tester quelques méthodes de l’application.
+>**🖥 TODO**
 > - En vous inspirant des tests existants, écrivez quelques tests unitaires permettant de vérifier le bon fonctionnement des classes que vous avez ajoutées pour dessiner des triangles. Pensez aux différents cas possibles. 
 >
 > - Vérifiez que les tests passent, ou corrigez votre code si nécessaire. 
@@ -51,6 +55,7 @@ Dans la suite du projet, nous continuerons à écrire des tests pour chaque nouv
 
 La classe `DrawingPane` contient un attribut de type `ArrayList` pour stocker les formes géométriques créées. Pour y accéder, un getter a été implémenté : il s’agit de la méthode `getShapes()`. Il est d’ailleurs utilisé dans la classe `MouseMoveHandler`, par exemple.
 
+>**🖥 TODO**
 > - Quel problème relatif au principe d’encapsulation ce getter pose-t-il ?
 
 Pour vous en rendre compte, dans la classe `ShapeButtonHandler`, essayez de remplacer la ligne :
@@ -61,6 +66,7 @@ par celle-ci :
 
     drawingPane.getShapes().add(shape);
 
+>**🖥 TODO**
 > - Que se passe-t-il, et pourquoi ? 👾
 > - Qu'est ce que cela révèle à propos de ce fameux getter ?
 > - Un peu de réflexion : Que proposeriez-vous pour corriger ce problème ? 🤷🏽‍
