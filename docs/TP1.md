@@ -7,21 +7,21 @@ Dans cette première partie, nous allons nous familiariser avec le code de l’a
 ### 🔬 À la recherche des classes perdues...
 
 D’abord, importez le projet sous IntelliJ, Eclipse, ou un autre environnement de développement de votre choix. 
-Les dépendances du projet sont gérées automatiquement grâce à Maven. Par curiosité, vous pouvez les identifier dans le `pom.xml` :
+Les dépendances du projet sont gérées automatiquement grâce à Maven. Par curiosité, vous pouvez les identifier dans le fichier `pom.xml` :
 - openjfx
 - junit (pour les tests)
 - testfx (pour les tests graphiques)
 
 Compilez le projet, lancez l'application, et testez !
 
-> Créez un diagramme des classes, il vous sera utile par la suite. Pour cela, vous pouvez utiliser un stylo et un papier... 📝
->
-> Efforcez-vous de comprendre le rôle de chaque classe 🧐
+>> Créez un diagramme des classes, il vous sera utile par la suite. Pour cela, vous pouvez utiliser un stylo et un papier... 📝
+> 
+>> Efforcez-vous de comprendre le rôle de chaque classe 🧐
 
-Les formes géométriques qui sont dessinées sont représentées par des objets, qui sont stockés dans le `DrawingPane`. Mais où sont les classes représentant les différentes formes géométriques ??
-> Cherchez un peu, et quand vous aurez trouvé, complétez le diagramme de classes de l'application.
+<br>Les formes géométriques qui sont dessinées sont représentées par des objets, qui sont stockés dans le `DrawingPane`. Mais où sont les classes représentant les différentes formes géométriques ??
+>> Cherchez un peu, et quand vous aurez trouvé, complétez le diagramme de classes de l'application.
 
-### 🌴 Le triangle des bermudes
+<br>### 🌴 Le triangle des bermudes
 
 On veut maintenant pouvoir dessiner des triangles.
 
