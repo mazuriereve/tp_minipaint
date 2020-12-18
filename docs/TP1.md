@@ -14,7 +14,7 @@ Les dépendances du projet sont gérées automatiquement grâce à Maven. Par cu
 
 Compilez le projet, lancez l'application, et testez !
 
->**🖥 TODO**
+> <span style="color:#e14329;">**🖥 TODO**</span> 
 > - Créez un diagramme des classes, il vous sera utile par la suite. Pour cela, vous pouvez utiliser un stylo et un papier... 📝
 > 
 > - Efforcez-vous de comprendre le rôle de chaque classe 🧐
@@ -55,7 +55,7 @@ Dans la suite du projet, nous continuerons à écrire des tests pour chaque nouv
 
 La classe `DrawingPane` contient un attribut de type `ArrayList` pour stocker les formes géométriques créées. Pour y accéder, un getter a été implémenté : il s’agit de la méthode `getShapes()`. Il est d’ailleurs utilisé dans la classe `MouseMoveHandler`, par exemple.
 
->**🖥 TODO**
+><span style="color:orange;">**🖥 TODO**</span>
 > - Quel problème relatif au principe d’encapsulation ce getter pose-t-il ?
 
 Pour vous en rendre compte, dans la classe `ShapeButtonHandler`, essayez de remplacer la ligne :
