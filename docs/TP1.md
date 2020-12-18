@@ -14,14 +14,15 @@ Les dépendances du projet sont gérées automatiquement grâce à Maven. Par cu
 
 Compilez le projet, lancez l'application, et testez !
 
->> Créez un diagramme des classes, il vous sera utile par la suite. Pour cela, vous pouvez utiliser un stylo et un papier... 📝
+> - Créez un diagramme des classes, il vous sera utile par la suite. Pour cela, vous pouvez utiliser un stylo et un papier... 📝
 > 
->> Efforcez-vous de comprendre le rôle de chaque classe 🧐
+> - Efforcez-vous de comprendre le rôle de chaque classe 🧐
 
 <br>Les formes géométriques qui sont dessinées sont représentées par des objets, qui sont stockés dans le `DrawingPane`. Mais où sont les classes représentant les différentes formes géométriques ??
->> Cherchez un peu, et quand vous aurez trouvé, complétez le diagramme de classes de l'application.
+> - Cherchez un peu, et quand vous aurez trouvé, complétez le diagramme de classes de l'application.
+<br> 
 
-<br>### 🌴 Le triangle des bermudes
+### 🌴 Le triangle des bermudes
 
 On veut maintenant pouvoir dessiner des triangles.
 
