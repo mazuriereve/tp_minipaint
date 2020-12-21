@@ -22,6 +22,7 @@ Pour y parvenir, nous allons procéder en plusieurs étapes.
 Pour chaque « *handler* » correspondant à une action, nous allons extraire le code de l’action et en faire une commande. Cette transformation peut être schématisée par le diagramme suivant (commencez par le `ClearButtonHandler`, c’est le plus facile) :
 
 <center><img src="./images/minipaint_06.png" alt="drawing" width="700"/></center>
+<center><img src="./docs/images/minipaint_06.png" alt="drawing" width="700"/></center>
 
 Pour cela, procédez comme suit :
 >**🖥 TODO**
