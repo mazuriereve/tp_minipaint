@@ -9,7 +9,7 @@ Le principe de ce patron consiste à encapsuler les actions (ou « commandes »)
 
 Pour y parvenir, nous allons procéder en plusieurs étapes.
 
-###🕹 1.	L’interface `ICommand`
+### 🕹 1.	L’interface `ICommand`
 --- 
 >**🖥 TODO**
 >
@@ -17,12 +17,11 @@ Pour y parvenir, nous allons procéder en plusieurs étapes.
 
 <br>
 
-###🛍 2.	Création des commandes 
+### 🛍 2.	Création des commandes 
 ---
 Pour chaque « *handler* » correspondant à une action, nous allons extraire le code de l’action et en faire une commande. Cette transformation peut être schématisée par le diagramme suivant (commencez par le `ClearButtonHandler`, c’est le plus facile) :
 
-<center><img src="./images/minipaint_06.png" alt="drawing" width="700"/></center>
-<center><img src="./docs/images/minipaint_06.png" alt="drawing" width="700"/></center>
+![Diagramme Command](./images/minipaint_06.png)
 
 Pour cela, procédez comme suit :
 >**🖥 TODO**
@@ -36,7 +35,7 @@ Pour cela, procédez comme suit :
 
 <br> 
 
-###⏮ 3.	Undo
+### ⏮ 3.	Undo
 ---
 Puisque chaque commande sait annuler son action (grâce à la méthode `undo`), il suffit maintenant de se rappeler la liste des commandes exécutées pour être capable de les annuler les unes après les autres. 
 
@@ -49,7 +48,7 @@ Puisque chaque commande sait annuler son action (grâce à la méthode `undo`), 
 
 <br> 
 
-###🐞 4.	Debug
+### 🐞 4.	Debug
 ---
 Enchainez les actions suivantes :
 
@@ -66,7 +65,7 @@ Enchainez les actions suivantes :
 
 <br> 
 
-###🤖 5.	Redo
+### 🤖 5.	Redo
 ---
 >**🖥 TODO**
 >
