@@ -35,7 +35,7 @@ Grâce à la sélection multiple, on peut donc appliquer des actions sur toutes 
 
 >**🖥 TODO**
 >
-> - Corrigez cela… 🩹
+> - Corrigez cela… 
 
 <br> 
 

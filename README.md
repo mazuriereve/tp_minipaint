@@ -8,3 +8,6 @@ Cette application en JavaFX, permettant de dessiner des formes géométriques, v
 - [TP4 – On continue...](docs/TP4.md)
 - [TP5 – Groupement de formes](docs/TP5.md)
 - [TP6 – Le patron Command](docs/TP6.md)
+- [TP7 – Améliorations](docs/TP7.md)
+- [TP8 – Le retour de l'Observer](docs/TP8.md)
+- [TP9 – Changement de stratégie](docs/TP9.md)

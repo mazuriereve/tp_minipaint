@@ -14,4 +14,33 @@ Même s’il est possible de déplacer plusieurs formes à la fois (grâce à la
 
 <br>
 
+### 🎀 Quelques améliorations
+---
+Vous avez sans doute remarqué qu'il reste quelques fonctionnements disgracieux : par exemple, si on souhaite créer une forme, et que le point de départ se trouve sur une forme déjà existante, celle-ci est déplacée en même temps que l'autre est créée. 
+
+>**🖥 TODO**
+>
+> - Faites en sorte que le déplacement soit désactivé lorsqu'une forme est en train d'être créée.
+
+<br>
+
+Une autre fonction intéressante serait de pouvoir mettre une forme au premier plan (devant les autres).
+
+>**🖥 TODO**
+>
+> - Implémentez cette fonctionnalité
+
+<br>
+
+#### 🏆 Bonus
+
+>**🖥 TODO**
+>
+> - On voudrait aussi pouvoir sélectionner plusieurs formes en délimitant une "zone" de sélection avec la souris (par un clic-drag-release)
+
+
+
+<br>
+
+
 [🔙 Retour](../README.md)

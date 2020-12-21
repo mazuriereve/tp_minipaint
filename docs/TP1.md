@@ -4,7 +4,7 @@
 Dans cette première partie, nous allons nous familiariser avec le code de l’application, et en profiter pour découvrir un ou deux patrons de conception. 
 
 
-### 🔬 À la recherche des classes perdues...
+### 🗺 À la recherche des classes perdues...
 ---
 D’abord, importez le projet sous IntelliJ, Eclipse, ou un autre environnement de développement de votre choix. 
 Les dépendances du projet sont gérées automatiquement grâce à Maven. Par curiosité, vous pouvez les identifier dans le fichier `pom.xml` :
