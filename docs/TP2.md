@@ -11,7 +11,7 @@ On veut rajouter une barre de statut horizontale, en bas de la fenêtre. Cette b
 > - Ajoutez une instance de cette classe dans l’interface, en la positionnant en bas de la fenêtre. Inspirez-vous du style CSS de la barre d’outils pour lui appliquer un style similaire (mais cette fois avec une bordure en haut).
 
 
-<center><img src="images/minipaint_02.png" alt="drawing" width="550"/></center>
+<center><img src="./images/minipaint_02.png" alt="drawing" width="550"/></center>
 
 La barre de statut est bien créée, mais pour l’instant elle « ne sait rien » des formes qui sont dessinées. 🤷🏼‍♂️
 

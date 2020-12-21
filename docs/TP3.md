@@ -3,13 +3,13 @@
 
 ### 🛼 IShape 
 --- 
-Pour différentes raisons, l’architecte souhaite que l’application utilise l’interface `IShape` (fournie ci-dessous) pour manipuler les formes. Il aurait pu nous prévenir avant… La classe `Shape` n’implémente pas cette interface !
+Pour différentes raisons, l’architecte souhaite que l’application utilise l’interface `IShape` (fournie ci-dessous) pour manipuler les formes. Il aurait pu nous prévenir avant… La classe `Shape` n’implémente pas cette interface ! 😩
 
-Le problème, c’est qu’on ne peut pas modifier la classe `Shape` et les classes qui en héritent, comme `Ellipse`, et `Rectangle`, car elles font partie de l’API JavaFx. On pourrait bien sûr étendre toutes les sous-classes qu’on utilise (`Ellipse`, `Rectangle`, etc.) et faire en sorte que ces sous-classes héritent de l’interface. 
+🤔 Le problème, c’est qu’on ne peut pas modifier la classe `Shape` et les classes qui en héritent, comme `Ellipse`, et `Rectangle`, car elles font partie de l’API JavaFx. On pourrait bien sûr étendre toutes les sous-classes qu’on utilise (`Ellipse`, `Rectangle`, etc.) et faire en sorte que ces sous-classes héritent de l’interface. 
 
 >**🖥 TODO**
 >
-> Expliquez pourquoi ce n’est pas une bonne solution. 
+> - Expliquez pourquoi ce n’est pas une bonne solution. 💩
 
 <br>
 L'interface `IShape` en question :
@@ -29,7 +29,7 @@ L'interface `IShape` en question :
 
 Une meilleure solution consiste à utiliser le patron *Adapter*. 
 
-Documentez-vous sur ce patron. Vous pouvez notamment regarder la [vidéo de Christopher Okhravi](https://youtu.be/2PKQtcJjYvc) 
+Documentez-vous sur ce patron. Vous pouvez notamment regarder la [vidéo de Christopher Okhravi](https://youtu.be/2PKQtcJjYvc) 📺
 
 Si vous avez bien suivi :
 
