@@ -14,6 +14,7 @@ Les dépendances du projet sont gérées automatiquement grâce à Maven. Par cu
 - testfx (pour les tests graphiques)
 
 Compilez le projet, lancez l'application, et testez !
+Vous pouvez utiliser la commande `mvn clean javafx:run`
 
 >**🖥 TODO**
 >
