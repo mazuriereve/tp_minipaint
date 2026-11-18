@@ -22,3 +22,11 @@ En fait, une bonne pratique consiste à s’inspirer du patron _Iterator_. Nous 
 <br>
 
 [🔙 Retour](./TP1.md)
+
+### TP1 plus : le patron Iterator
+
+Le patron *Iterator* permet de parcourir une collection sans en exposer la représentation interne. L'API Java le propose avec deux interfaces : `Iterator` (`hasNext()`, `next()`, `remove()`) et `Iterable`, qui impose la méthode `iterator()` et permet d'utiliser la boucle for-each.
+
+J'ai fait implémenter `Iterable<Shape>` par `DrawingPane`, supprimé `getShapes()` et remplacé ses appels dans `MouseMoveHandler` et dans les tests par `for (Shape shape : drawingPane)` et `drawingPane.iterator()`. L'itérateur renvoyé est construit sur une liste non modifiable (`Collections.unmodifiableList`) : on peut parcourir les formes, mais pas les ajouter ni les supprimer sans passer par `addShape` et `removeShape`. L'encapsulation est ainsi respectée, et le test `should_not_modify_shapes_through_iterator` le vérifie.
+
+À retenir : quand on encapsule une collection dans une classe, on peut implémenter `Iterable` plutôt que d'exposer la collection.
