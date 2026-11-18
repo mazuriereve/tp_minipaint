@@ -82,3 +82,7 @@ Réfléchissez et proposez une solution avant de [lire la suite... ](./TP1_plus.
 <br>
 
 [🔙 Retour](../README.md)
+
+réponse aux questions : 
+
+- 

@@ -32,7 +32,7 @@ public class MouseMoveHandler implements EventHandler<MouseEvent> {
             orgSceneX = event.getSceneX();
             orgSceneY = event.getSceneY();
 
-            for (Shape shape : drawingPane.getShapes()) {
+            for (Shape shape : drawingPane) {
                 if (shape.getBoundsInParent().contains(event.getX(), event.getY())) {
                     selectedShape = shape;
                     break;
