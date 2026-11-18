@@ -8,9 +8,11 @@ import javafx.scene.shape.Shape;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
+import java.util.List;
 
 /**
  * Created by lewandowski on 20/12/2020.
+ * Sujet du patron Observer : prévient ses observateurs quand une forme est ajoutée ou supprimée.
  */
 public class DrawingPane extends Pane implements Iterable<Shape> {
 
@@ -18,9 +20,12 @@ public class DrawingPane extends Pane implements Iterable<Shape> {
 
     private ArrayList<Shape> shapes;
 
+    private List<Observer> observers;
+
     public DrawingPane() {
         clipChildren();
         shapes = new ArrayList<>();
+        observers = new ArrayList<>();
         mouseMoveHandler = new MouseMoveHandler(this);
     }
 
@@ -43,11 +48,14 @@ public class DrawingPane extends Pane implements Iterable<Shape> {
     public void addShape(Shape shape) {
         shapes.add(shape);
         this.getChildren().add(shape);
+        notifyObservers();
     }
 
     public void removeShape(Shape shape) {
-        shapes.remove(shape);
-        this.getChildren().remove(shape);
+        if (shapes.remove(shape)) {
+            this.getChildren().remove(shape);
+            notifyObservers();
+        }
     }
 
     /**
@@ -59,8 +67,31 @@ public class DrawingPane extends Pane implements Iterable<Shape> {
         return Collections.unmodifiableList(shapes).iterator();
     }
 
+    /**
+     * Nombre de formes dessinées.
+     */
+    public int size() {
+        return shapes.size();
+    }
+
     public void clear() {
         this.getChildren().removeAll(shapes);
         shapes.clear();
+        notifyObservers();
+    }
+
+    public void addObserver(Observer observer) {
+        observers.add(observer);
+    }
+
+    public void removeObserver(Observer observer) {
+        observers.remove(observer);
+    }
+
+    private void notifyObservers() {
+        // copie de la liste : un observateur peut se désabonner pendant la notification
+        for (Observer observer : new ArrayList<>(observers)) {
+            observer.update();
+        }
     }
 }

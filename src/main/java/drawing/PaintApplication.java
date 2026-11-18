@@ -20,6 +20,7 @@ public class PaintApplication extends Application {
     private Scene scene;
     private BorderPane root;
     private DrawingPane drawingPane;
+    private StatutBar statutBar;
 
     private Button clearButton;
     private Button rectangleButton;
@@ -49,11 +50,13 @@ public class PaintApplication extends Application {
         triangleButton = new Button("Triangle");
         triangleButton.addEventFilter(ActionEvent.ACTION, new TriangleButtonHandler(drawingPane));
         hBox.getChildren().addAll(clearButton, rectangleButton, circleButton, triangleButton);
-
         hBox.setPadding(new Insets(5));
         hBox.setSpacing(5.0);
         hBox.getStyleClass().add("toolbar");
         root.setTop(hBox);
+
+        statutBar = new StatutBar(drawingPane);
+        root.setBottom(statutBar);
 
         primaryStage.setTitle("Drawing");
         primaryStage.setScene(scene);
@@ -64,7 +67,12 @@ public class PaintApplication extends Application {
         return drawingPane;
     }
 
+    public StatutBar getStatutBar() {
+        return statutBar;
+    }
+
     public static void main(String[] args) {
         launch(args);
     }
 }
+

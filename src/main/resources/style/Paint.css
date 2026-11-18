@@ -26,3 +26,9 @@
     -fx-stroke: royalblue;
     -fx-stroke-width: 3;
 }
+
+.statusbar{
+    -fx-border-style :solid;
+    -fx-border-width : 1px 0px 0px 0px;
+    -fx-border-color : darkgrey ;
+}

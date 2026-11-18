@@ -7,6 +7,9 @@ import javafx.stage.Stage;
 import org.junit.Test;
 import org.testfx.framework.junit.ApplicationTest;
 
+import drawing.DrawingPane;
+import drawing.Observer;
+
 import java.util.Iterator;
 import java.util.List;
 
@@ -173,6 +176,67 @@ public class PaintTest extends ApplicationTest {
         // dimensions
         assertEquals(width, p.get(4) - p.get(2), delta);
         assertEquals(height, p.get(3) - p.get(1), delta);
+    }
+
+    @Test
+    public void status_bar_should_show_zero_at_start() {
+        assertEquals("Nombre de formes : 0", app.getStatutBar().getText());
+    }
+
+    @Test
+    public void status_bar_should_count_drawn_shapes() {
+        // when:
+        clickOn("Rectangle");
+        moveBy(30, 60).drag().dropBy(70, 40);
+
+        // then:
+        assertEquals("Nombre de formes : 1", app.getStatutBar().getText());
+
+        // when:
+        clickOn("Circle");
+        moveBy(-30, 160).drag().dropBy(70, 40);
+
+        // then:
+        assertEquals("Nombre de formes : 2", app.getStatutBar().getText());
+    }
+
+    @Test
+    public void status_bar_should_be_updated_when_a_shape_is_removed() {
+        Shape ellipse = new Ellipse(20, 20, 30, 30);
+        interact(() -> app.getDrawingPane().addShape(ellipse));
+        assertEquals("Nombre de formes : 1", app.getStatutBar().getText());
+
+        interact(() -> app.getDrawingPane().removeShape(ellipse));
+        assertEquals("Nombre de formes : 0", app.getStatutBar().getText());
+    }
+
+    @Test
+    public void status_bar_should_be_reset_by_clear() {
+        // given:
+        clickOn("Triangle");
+        moveBy(30, 60).drag().dropBy(70, 40);
+        assertEquals("Nombre de formes : 1", app.getStatutBar().getText());
+
+        // when:
+        clickOn("Clear");
+
+        // then:
+        assertEquals("Nombre de formes : 0", app.getStatutBar().getText());
+    }
+
+    @Test
+    public void observer_should_be_notified_until_it_is_removed() {
+        int[] calls = {0};
+        Observer observer = () -> calls[0]++;
+        DrawingPane pane = app.getDrawingPane();
+
+        pane.addObserver(observer);
+        interact(() -> pane.addShape(new Ellipse(20, 20, 30, 30)));
+        assertEquals(1, calls[0]);
+
+        pane.removeObserver(observer);
+        interact(() -> pane.addShape(new Ellipse(20, 20, 30, 30)));
+        assertEquals(1, calls[0]);
     }
 
 }
