@@ -83,6 +83,46 @@ Réfléchissez et proposez une solution avant de [lire la suite... ](./TP1_plus.
 
 [🔙 Retour](../README.md)
 
-réponse aux questions : 
+Réponses  aux questions : 
+
+### A la recherche des classes perdues : 
+Question : Ou sont les classes des formes géométriques ?
+
+Il n'y a pas de classes de formes dans le projet : ce sont les classes de JavaFX.scene.shape.Rectangle et javafx.Scene.shape.ellipse , qui hérite toutes les deux de javafx.scene.shape.Shape. Le 'DrawingPan stocke des objets de type 'Shape'.
+
+Le diagramme de classes se trouve dans 'docs/images/diagramme_de_classes' ou en image ci dessous :
+
+![Diagramme de classes](images/diagramme_de_classes.png)
+
+### Le triangle
+
+J'ai utilisé la classe JavaFx 'Polygon ,qui permet de définir une forme à partir de la liste de ses sommets. Le triangle est crée par 'TriangleButtonHandler' , qui étend 'ShapeButtonHandler' comme 'RectangleButtonHandler' et 'EllipseButtonHandler". Il est inscrit dans le rectangle tracé à la souris : le sommet est au centre du côté haut  , et la base est le côté bas.
+Le bouton "Triangle" sur l'interface a été ajouté sur le 'PaintApplication' puis le css dans le fichier 'Paint.css'.
+
+### Les tests
+
+J'ai ajouté les tests dans 'PaintTest' : dessin d'un triangle par le code , dessin à la souris (pour vérifier la forme notamment les dimensions et le style) , dessin dans l'autre sens c'est à dire de la droite vers la gauche et de bas en haut) + vérification avec le bouton "Clear".
+
+### Quel problème d'encapsulation pose `getShapes()` ?
+
+Le getter renvoie directement la référence vers la liste interne `ArrayList`. N'importe quelle classe peut donc la modifier (ajouter, supprimer, vider) sans passer par `DrawingPane`, qui ne contrôle plus son propre état.
+
+### Que se passe-t-il avec `drawingPane.getShapes().add(shape)` et pourquoi ?
+
+La forme est ajoutée à la liste `shapes`, mais elle n'apparaît pas à l'écran. La méthode `addShape` fait deux choses : elle ajoute la forme à la liste **et** aux enfants du `Pane` (`getChildren().add(shape)`). En passant par le getter, seule la première opération est faite : la forme est connue du `DrawingPane` mais n'est pas affichée.
+
+### Qu'est-ce que cela révèle sur le getter ?
+
+Il expose la représentation interne de la classe. Les deux structures (la liste `shapes` et les enfants du `Pane`) doivent rester synchronisées, mais le getter permet de modifier l'une sans l'autre : l'objet peut devenir incohérent. L'encapsulation n'est donc pas respectée.
+
+### Quelle solution proposer ?
+
+Ne plus exposer la liste. On peut utiliser le patron *Iterator* : `DrawingPane` implémente `Iterable<Shape>` et fournit une méthode `iterator()` qui renvoie un itérateur en lecture seule (via `Collections.unmodifiableList`). Les autres classes peuvent parcourir les formes (`for (Shape s : drawingPane)`) mais ne peuvent les ajouter ou les retirer qu'avec `addShape` et `removeShape`. J'ai supprimé `getShapes()` et mis à jour ses appels dans `MouseMoveHandler` et dans les tests.
+
+
+
+
+
+
 
 - 
