@@ -33,7 +33,8 @@ Reprenez l’exemple vu en cours illustrant le fonctionnement du patron *Observe
 >
 		public void update() ;
 > 
-> - Modifiez les deux classes identifiées précédemment :>  - Le ***sujet*** doit pouvoir gérer une liste d’observateurs (on doit pouvoir en ajouter, en retirer), et les notifier lorsqu’il effectue un changement. 
+> - Modifiez les deux classes identifiées précédemment :
+>  - Le ***sujet*** doit pouvoir gérer une liste d’observateurs (on doit pouvoir en ajouter, en retirer), et les notifier lorsqu’il effectue un changement. 
 >  - L’***observateur*** doit implémenter l’interface `Observer`
 > - Finalement, n’oubliez pas que l’observateur doit s’abonner auprès du sujet pour recevoir les notifications !
 > - Ah oui, dernière chose : pensez à créer un test pour vérifier le bon fonctionnement de votre barre de statut… 
@@ -67,3 +68,44 @@ En fait, la classe `RectangleButtonHandler` est très curieuse : elle observe be
 <br>
 
 [🔙 Retour](../README.md)
+
+
+---
+
+## Mes réponses
+
+### Sujet et observateur
+
+- **Sujet (observable)** : `DrawingPane`. Elle contient la liste des formes et sait quand une forme est ajoutée ou supprimée.
+- **Observateur** : `StatutBar`. Elle doit afficher le nombre de formes à jour.
+
+### Mise en œuvre
+
+J'ai créé l'interface `Observer`, avec la méthode `update()`.
+
+`DrawingPane` (le sujet) gère une liste d'observateurs avec `addObserver` et `removeObserver`, et les prévient avec `notifyObservers()` dans `addShape`, `removeShape` et `clear`.
+
+`StatutBar` (l'observateur) hérite de `HBox`, contient un `Label` et implémente `Observer`. Elle s'abonne auprès du `DrawingPane` dans son constructeur. Comme `update()` n'a pas de paramètre, la barre interroge le sujet avec `drawingPane.size()` pour afficher le nombre de formes.
+
+La barre est placée en bas de la fenêtre dans `PaintApplication` (`root.setBottom`), avec le style `.statusbar` de `Paint.css` (bordure en haut).
+
+J'ai ajouté des tests dans `PaintTest` : la barre affiche 0 au départ, puis le bon nombre après chaque forme dessinée, après une suppression et après « Clear », et un test vérifie qu'un observateur n'est plus prévenu une fois retiré.
+### Un patron déguisé : `ClearButtonHandler`
+
+- **À quoi sert `ClearButtonHandler` ?** À effacer toutes les formes : elle appelle `drawingPane.clear()` quand on clique sur « Clear ».
+- **Objectif de `handle` :** c'est le code exécuté quand l'événement se produit. L'interface `EventHandler` impose cette méthode.
+- **Quand est-elle appelée ?** Quand le bouton est activé (clic) : JavaFX envoie un `ActionEvent` et appelle `handle`.
+- **Lien avec le bouton :** dans `PaintApplication`, `clearButton.addEventFilter(ActionEvent.ACTION, new ClearButtonHandler(drawingPane))` enregistre le handler auprès du bouton.
+- **Parallèle avec Observer :** le bouton est le sujet, `ClearButtonHandler` est l'observateur, `addEventFilter` correspond à l'abonnement (`addObserver`), et `handle` correspond à `update`.
+
+### `RectangleButtonHandler` : qu'observe-t-elle ?
+
+- Un `ActionEvent`, venu du bouton « Rectangle » (enregistré dans `PaintApplication` avec `addEventFilter`).
+- Un `MOUSE_PRESSED`, venu du `DrawingPane`. Le handler s'y abonne dans `handle`, à la réception de l'`ActionEvent`.
+- Un `MOUSE_RELEASED`, venu du `DrawingPane`. Il s'y abonne à la réception du `MOUSE_PRESSED`.
+
+À la fin (`MOUSE_RELEASED`), il crée la forme, l'ajoute au `DrawingPane`, puis se désabonne des deux événements souris.
+
+### Diagramme de séquence : création d'un rectangle
+
+![Diagramme de séquence](images/sequence_rectangle.png)
